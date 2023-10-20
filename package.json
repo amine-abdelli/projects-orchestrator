@@ -2,10 +2,10 @@
   "name": "scdp-projects-orchestrator",
   "version": "0.2.0",
   "description": "",
-  "main": "index.ts",
+  "main": "src/main.ts",
   "scripts": {
     "build": "rm -rf ./dist/ && tsc -p tsconfig.json",
-    "dev:run": "ts-node-dev index.ts"
+    "dev:run": "ts-node-dev src/main.ts"
   },
   "repository": {
     "type": "git",

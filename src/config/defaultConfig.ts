@@ -1,13 +1,17 @@
+import { defineDefaultWorkspaceFolder } from "../utils";
 
 export const defaultConfig = {
   npm: {
-    installCommand: 'npm install'
+    install: 'npm install',
+    start: 'npm run start',
   },
   yarn: {
-    installCommand: 'yarn'
+    install: 'yarn',
+    start: 'yarn start',
   },
   maven: {
-    installCommand: 'mvn clean install'
+    install: 'mvn clean install',
+    start: 'mvn spring-boot:run',
   },
   ide: {
     vscode: {
@@ -28,6 +32,7 @@ export const defaultConfig = {
   envFiles: {
     node: '.env',
     maven: 'application.properties'
-  }
+  },
+  defaultWorkspaceDir: defineDefaultWorkspaceFolder(),
 };
 

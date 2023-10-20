@@ -1,30 +1,12 @@
-import { runCommand } from "../utils/vaultUtils";
-
-interface VersionInfo {
-  version: string;
-  type: string;
-  created_at: string;
-  value: string; // It seems this is stringified JSON. You may want to parse it to RepositoryInfo[]
-  created_by: CreatedBy;
-}
-
-interface CreatedBy {
-  name: string;
-  type: string;
-  email: string;
-}
-
-interface VaultSecret {
-  name: string;
-  version: VersionInfo;
-  created_at: string;
-  latest_version: string;
-  created_by: CreatedBy;
-  sync_status: Record<string, unknown>; // Assuming sync_status is an empty object or unknown structure
-}
+import { VaultSecret } from "../types";
+import { runCommand } from "../utils/vault.utils";
 
 export type VaultSecrets = VaultSecret[];
 
+/**
+ * Fetches the Vault configuration secrets using the provided environment variables.
+ * @returns A Promise that resolves to the VaultSecrets object or void if an error occurs.
+ */
 export async function fetchVaultConfig(): Promise<VaultSecrets | void> {
   const clientId = process.env.HCP_CLIENT_ID;
   const clientSecret = process.env.HCP_CLIENT_SECRET;
