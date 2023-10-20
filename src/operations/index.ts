@@ -1,2 +1,2 @@
 export * from './fetchVaultConfig';
-export * from './getRepos';
+export * from './getProjects';
