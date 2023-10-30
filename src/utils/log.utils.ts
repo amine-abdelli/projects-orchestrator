@@ -1,12 +1,13 @@
 import chalk from 'chalk';
 import { Colors } from '../constants/colors';
 
-export type LogType = 'error' | 'success' | 'warning';
+export type LogType = 'error' | 'success' | 'warning' | 'info' | 'default';
 
 export enum LogEnum {
   ERROR = 'error',
   SUCCESS = 'success',
   WARNING = 'warning',
+  INFO = 'info',
 }
 
 /**
@@ -14,14 +15,16 @@ export enum LogEnum {
  * @param message string
  * @param type 'error' | 'success' | 'warning'
  */
-export function log(message: string, type?: LogType) {
-  if (!type) {
-    console.log(chalk.bold(message))
-  } else {
-    let hex = '';
-    if (type === 'error') hex = Colors.ERROR;
-    if (type === 'success') hex = Colors.SUCCESS;
-    if (type === 'warning') hex = Colors.WARNING;
-    console.log(chalk.hex(hex).bold(message))
+export function log(message: string, type: LogType = 'default') {
+  const colorMapping: Record<LogType | 'default', string> = {
+    'default': '',
+    'error': Colors.ERROR,
+    'success': Colors.SUCCESS,
+    'warning': Colors.WARNING,
+    'info': Colors.INFO
   };
+
+  const color = colorMapping[type];
+
+  console.log(chalk.hex(color)(message));
 };

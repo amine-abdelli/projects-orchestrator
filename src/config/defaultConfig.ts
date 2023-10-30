@@ -1,17 +1,24 @@
+import { ProjectType } from "../types";
 import { defineDefaultWorkspaceFolder } from "../utils";
 
 export const defaultConfig = {
-  npm: {
-    install: 'npm install',
-    start: 'npm run start',
-  },
-  yarn: {
+  [ProjectType.NODE]: {
     install: 'yarn',
     start: 'yarn start',
+    env: '.env',
+    ide: 'code .'
   },
-  maven: {
+  [ProjectType.FLUTTER]: {
+    install: 'flutter pub get',
+    start: 'flutter run',
+    env: '.env',
+    ide: 'code .'
+  },
+  [ProjectType.MAVEN]: {
     install: 'mvn clean install',
     start: 'mvn spring-boot:run',
+    env: 'application.properties',
+    ide: 'idea .'
   },
   ide: {
     vscode: {
@@ -31,7 +38,8 @@ export const defaultConfig = {
   },
   envFiles: {
     node: '.env',
-    maven: 'application.properties'
+    maven: 'application.properties',
+    flutter: '.env',
   },
   defaultWorkspaceDir: defineDefaultWorkspaceFolder(),
 };
