@@ -22,5 +22,5 @@ export interface VaultSecret {
 }
 
 export enum VAULT_KEYS {
-  PROJECTS = 'repositories'
+  PROJECTS = 'projects'
 }

@@ -7,7 +7,7 @@ import { getProjects } from "../operations";
  * Prompts the user to select a project from a list of available projects.
  * @returns A promise that resolves with an object containing the selected project's name and repository URL.
  */
-export async function selectProjectToInit(): Promise<IProjectPickerPrompt> {
+export async function selectProjectPrompt(): Promise<IProjectPickerPrompt> {
   const projects = await getProjects();
   return inquirer.prompt([
     {
@@ -18,7 +18,7 @@ export async function selectProjectToInit(): Promise<IProjectPickerPrompt> {
         name: `${project.name}`,
         value: {
           name: project.name,
-          url: project.repository,
+          repository: project.repository,
           type: project.type
         }
       }))

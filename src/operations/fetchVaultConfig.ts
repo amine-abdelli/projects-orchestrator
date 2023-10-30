@@ -1,5 +1,5 @@
 import { VaultSecret } from "../types";
-import { runCommand } from "../utils/vault.utils";
+import { runCommand } from "../utils/system.utils";
 
 export type VaultSecrets = VaultSecret[];
 
