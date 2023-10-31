@@ -9,7 +9,7 @@ The Projects-Orchestrator is a CLI tool designed to simplify the onboarding proc
 
 ## Features
 
-- Clone repositories from a vault
+- Clone repositories
 - Install project dependencies
 - Fetch and apply configurations from a vault
 - Open the project in your preferred IDE
