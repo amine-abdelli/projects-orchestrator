@@ -2,7 +2,7 @@ export interface VersionInfo {
   version: string;
   type: string;
   created_at: string;
-  value: string; // It seems this is stringified JSON. You may want to parse it to RepositoryInfo[]
+  value: string;
   created_by: CreatedBy;
 }
 
@@ -18,7 +18,7 @@ export interface VaultSecret {
   created_at: string;
   latest_version: string;
   created_by: CreatedBy;
-  sync_status: Record<string, unknown>; // Assuming sync_status is an empty object or unknown structure
+  sync_status: Record<string, unknown>;
 }
 
 export enum VAULT_KEYS {
